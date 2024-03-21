@@ -1,19 +1,43 @@
 <mat-card>
-<mat-card-header>
-  <mat-card-title>Hours</mat-card-title>
-</mat-card-header>
-<mat-card-content>
-  <p>Gesamtzeit</p>
-  <form [formGroup]="timeCalcForm">
-    <mat-form-field>
-      <mat-label>hh</mat-label>
-      <input matInput formControlName="totalHours" type="number" id="totalHours" placeholder="hh" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>mm</mat-label>
-      <input matInput formControlName="totalMinutes" type="number" id="totalMinutes" placeholder="mm" required>
-    </mat-form-field>      
-  </form>
-</mat-card-content>
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Gesamtzeit: </p>
+    <form [formGroup]="timeCalcForm">
+      <mat-form-field>
+        <input matInput formControlName="totalHours" type="number" id="totalHours" placeholder="hh" required>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input matInput formControlName="totalMinutes" type="number" id="totalMinutes" placeholder="mm" required max="59">
+      </mat-form-field>
+      <br>
+      <hr>
+      <p>Einzeltasks: </p>
+      <div formArrayName="subtrahends">
+        <div *ngFor="let subtrahend of subtrahends.controls; let i = index" [formGroupName]="i">
+          <mat-form-field>
+            <input matInput type="number" formControlName="subHour" placeholder="hh">
+          </mat-form-field>
+          &nbsp;
+          <mat-form-field>
+            <input matInput type="number" formControlName="subMinutes" max="59" placeholder="mm">
+          </mat-form-field>
+          <button class="delButton" mat-mini-fab color="primary" aria-label="button with delete icon" (click)="deleteTimeRow(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+      </div>
+      <button mat-mini-fab color="secondary" (click)="addTimeRow()"><mat-icon>add</mat-icon></button>
+    </form>
+    <hr>
+    <div>
+      <h3>Restzeit: {{remainingTime}}</h3>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="calcRemaining()">berechnen</button>
+  </mat-card-actions>
 </mat-card>
-<router-outlet />
+<router-outlet/>

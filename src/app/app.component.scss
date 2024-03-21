@@ -9,3 +9,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.delButton {
+  vertical-align: middle;
+  margin-left: 5px;
+}
