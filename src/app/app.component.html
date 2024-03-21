@@ -1,0 +1,19 @@
+<mat-card>
+<mat-card-header>
+  <mat-card-title>Hours</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+  <p>Gesamtzeit</p>
+  <form [formGroup]="timeCalcForm">
+    <mat-form-field>
+      <mat-label>hh</mat-label>
+      <input matInput formControlName="totalHours" type="number" id="totalHours" placeholder="hh" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>mm</mat-label>
+      <input matInput formControlName="totalMinutes" type="number" id="totalMinutes" placeholder="mm" required>
+    </mat-form-field>      
+  </form>
+</mat-card-content>
+</mat-card>
+<router-outlet />
