@@ -1,0 +1,9 @@
+{
+  "name": "hours",
+  "version": "1.0.0-alpha",
+  "productName": "Hours",
+  "author": "https://github.com/kkraechan",
+  "description": "Berechnet die Restzeit aus einer gegebenen Gesamtzeit abzüglich angegebener Tasks",
+  "main": "environments/electron.prod.js",
+  "license": "GPL-3.0"
+}
