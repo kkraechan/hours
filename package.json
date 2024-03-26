@@ -1,6 +1,6 @@
 {
   "name": "hours",
-  "version": "1.0.0-alpha",
+  "version": "v1.0.1",
   "author": "https://github.com/kkraechan",
   "description": "Berechnet die Restzeit aus einer gegebenen Gesamtzeit abzüglich angegebener Tasks",
   "main": "src/environments/electron.dev.js",
