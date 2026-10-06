@@ -64,8 +64,8 @@ export class AppComponent {
     let subs = this.subtrahends.controls;
     let total: number = 0;
     subs.forEach(subControl => {
-      let subHour = +subControl.get('subHour')?.value;
-      let subMinutes = this.decimalMinutes(+subControl.get('subMinutes')?.value);
+      let subHour = +subControl.get('subHour')?.value || 0;
+      let subMinutes = this.decimalMinutes(+subControl.get('subMinutes')?.value || 0);
       total+= subHour + subMinutes;
     });
 
