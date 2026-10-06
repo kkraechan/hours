@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Time } from "@angular/common";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AppComponent {
   title = 'hoursApp';
@@ -63,8 +64,8 @@ export class AppComponent {
     let subs = this.subtrahends.controls;
     let total: number = 0;
     subs.forEach(subControl => {
-      let subHour = +subControl.get('subHour')?.value;
-      let subMinutes = this.decimalMinutes(+subControl.get('subMinutes')?.value);
+      let subHour = +subControl.get('subHour')?.value || 0;
+      let subMinutes = this.decimalMinutes(+subControl.get('subMinutes')?.value || 0);
       total+= subHour + subMinutes;
     });
 
